@@ -15,4 +15,6 @@ public class StockResponse {
         this.currentStock = currentStock;
     }
 
+
+
 }

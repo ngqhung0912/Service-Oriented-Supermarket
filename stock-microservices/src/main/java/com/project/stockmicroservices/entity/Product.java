@@ -1,23 +1,20 @@
 package com.project.stockmicroservices.entity;
 
+import jakarta.persistence.*;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import  jakarta.persistence.Entity;
-import  jakarta.persistence.GeneratedValue;
-import  jakarta.persistence.GenerationType;
-import  jakarta.persistence.Id;
-
 @Entity
-@Data
+@Table
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id;
     @Getter
     @Setter
-    private int productId;
+    private Long productId;
     @Getter
     @Setter
 
