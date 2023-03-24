@@ -1,5 +1,6 @@
 package com.project.stockmicroservices.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import  jakarta.persistence.GenerationType;
 import  jakarta.persistence.Id;
 
 @Entity
+@Data
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
