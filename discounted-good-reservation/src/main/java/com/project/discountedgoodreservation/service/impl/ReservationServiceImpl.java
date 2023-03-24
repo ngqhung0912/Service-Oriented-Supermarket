@@ -1,7 +1,11 @@
 package com.project.discountedgoodreservation.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.discountedgoodreservation.entity.Product;
 import com.project.discountedgoodreservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +14,10 @@ public class ReservationServiceImpl implements ReservationService {
   @Autowired
   private KafkaTemplate<String, String> kafkaTemplate;
 
-  private static final String RESERVE_TOPIC = "";
+  @Autowired
+  private ObjectMapper objectMapper;
+
+  private static final String RESERVE_TOPIC = "TEST";
 
   @Override
   public boolean reserve(Integer productId) {
@@ -25,7 +32,14 @@ public class ReservationServiceImpl implements ReservationService {
     finalizeReservation(productId);
 
     // publish the information to Kafka
-    String message = "";
+    Product product = new Product();
+    product.setId(1L);
+    String message = null;
+    try {
+      message = objectMapper.writeValueAsString(product);
+    } catch (JsonProcessingException e) {
+      System.out.println(e.getMessage());
+    }
     kafkaTemplate.send(RESERVE_TOPIC, message);
     return true;
   }
@@ -37,5 +51,10 @@ public class ReservationServiceImpl implements ReservationService {
 
   private void finalizeReservation(int productId) {
     // todo mark the discounted good as reserved
+  }
+
+  @KafkaListener(topics = "TEST")
+  public void listenTest(String message) {
+    System.out.println("kafka test:" + message);
   }
 }
