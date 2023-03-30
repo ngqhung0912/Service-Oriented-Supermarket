@@ -36,5 +36,4 @@ public class StockController {
         return products.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).
                 orElseGet(() -> ResponseEntity.status(HttpStatus.FORBIDDEN).build());
     }
-
 }

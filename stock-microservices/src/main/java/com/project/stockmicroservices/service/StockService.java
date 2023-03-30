@@ -18,7 +18,7 @@ public class StockService {
       Product product = objectMapper.readValue(message, Product.class);
       System.out.println("message:" + message);
       System.out.println("object" + product);
-      System.out.println("id:" + product.getId());
+      System.out.println("id:" + product.getProductId());
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }

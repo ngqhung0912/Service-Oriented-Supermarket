@@ -3,8 +3,6 @@ package com.project.barcodereader.controller;
 import com.project.barcodereader.entity.BarcodeInput;
 import com.project.barcodereader.entity.BarcodeReaderServices;
 import com.project.barcodereader.entity.ProductInformation;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
