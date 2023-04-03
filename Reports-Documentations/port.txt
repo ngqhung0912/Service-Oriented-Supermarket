@@ -1,0 +1,9 @@
+This file list the port that services are running on.
+stock-Microservices: 8091
+kafka: 8092
+discounted-good: 8081
+customer: 8098
+barcode: 8099
+authentication: 8097
+
+
