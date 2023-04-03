@@ -1,10 +1,9 @@
 package com.project.barcodereader.controller;
 
 import com.project.barcodereader.entity.BarcodeInput;
-import com.project.barcodereader.entity.BarcodeReaderServices;
-import com.project.barcodereader.entity.ProductInformation;
+import com.project.barcodereader.exception.ProductNotFoundException;
+import com.project.barcodereader.services.BarcodeReaderServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,22 +28,14 @@ public class BarcodeReaderController {
 
     @PostMapping("/read-barcode")
     public String returnBarcodeResult(Model model, @ModelAttribute BarcodeInput barcodeInput) {
-        String barcodeResponse = readBarcode(barcodeInput.getBarcode());
+        String barcodeResponse;
+        try {
+            barcodeResponse = barcodeReaderServices.getProductInformationFromStock(barcodeInput.getBarcode());
+        } catch (ProductNotFoundException e) {
+            barcodeResponse = e.getMessage();
+        }
         model.addAttribute("barcodeResponse", barcodeResponse);
         return "completed-retrieve";
     }
 
-
-    public String readBarcode(int barcode) {
-        ResponseEntity<ProductInformation> productInformationResponseEntity = barcodeReaderServices.getProductInformationFromStock(barcode);
-        if (productInformationResponseEntity.hasBody()) {
-            ProductInformation productInformation = productInformationResponseEntity.getBody();
-            return "Barcode: " + productInformation.getProductId() + "\n" +
-                    "Name: " + productInformation.getName() + "\n" +
-                    "Description: " + productInformation.getDescription() + "\n" +
-                    "Price: " + productInformation.getPrice();
-        } else {
-            return "Product not found";
-        }
-    }
 }

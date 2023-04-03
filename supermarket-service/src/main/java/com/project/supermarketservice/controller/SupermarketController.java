@@ -10,5 +10,3 @@ public class SupermarketController {
         return "home-page";
     }
 }
-
-    

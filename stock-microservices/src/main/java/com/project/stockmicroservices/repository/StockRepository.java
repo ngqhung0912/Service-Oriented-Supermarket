@@ -4,10 +4,9 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-//public interface StockRepository extends CrudRepository<Product,Long> {
 public interface StockRepository extends CrudRepository<Product,Long> {
 
     List<Product> findAll();
 
-    Optional<Product> findById(Long id);
+    Optional<Product> findById(Long product_id);
 }

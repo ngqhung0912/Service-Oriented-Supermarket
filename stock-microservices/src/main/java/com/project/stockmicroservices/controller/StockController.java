@@ -30,10 +30,8 @@ public class StockController {
     @GetMapping("/stock")
     public ResponseEntity<Product> getProductById(@RequestParam("id") Long id) {
         // return product info in JSON
-        System.out.println(id);
         Optional<Product> products = stockRepository.findById(id);
-        System.out.println(stockRepository.findAll());
         return products.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).
-                orElseGet(() -> ResponseEntity.status(HttpStatus.FORBIDDEN).build());
+                orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }
