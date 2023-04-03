@@ -18,9 +18,6 @@ public class BarcodeReaderServices {
     private static final String STOCK_SERVICE_ID = "stockMicroservices";
     private static final String STOCK_SERVICE_ENDPOINT = "/stock-microservices/stock?";
 
-//TODO This doesn't seems like the correct way to handle 404. Basically, if I query a product information and that information
-// does not exist, then stockMicroservice return a 404 - without a body. restTemplate.exchange cannot handle that. This try-catch
-// block seems like a temporary fix rather than a full fix.
     public String getProductInformationFromStock(int productId) throws ProductNotFoundException {
         try {
             ResponseEntity<ProductInformation> productInformationResponseEntity =  restTemplate.exchange("http://"+STOCK_SERVICE_ID+STOCK_SERVICE_ENDPOINT+"id="+productId,

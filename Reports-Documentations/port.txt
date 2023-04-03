@@ -4,6 +4,6 @@ kafka: 8092
 discounted-good: 8081
 customer: 8098
 barcode: 8099
-authentication: 8080
+authentication: 8097
 
 
