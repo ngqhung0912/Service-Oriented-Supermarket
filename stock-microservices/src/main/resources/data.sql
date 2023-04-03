@@ -1,5 +1,3 @@
-
-
 INSERT INTO product (product_id,name,description,price,count) VALUES
                                                             (100,'TV','Idiot Box',2000.00, 10),
                                                             (101,'Telescope','Helps you see aliens',500.00, 10),
