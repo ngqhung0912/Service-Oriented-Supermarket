@@ -2,6 +2,8 @@ package com.project.stockmicroservices.controller;
 
 import com.project.stockmicroservices.entity.Product;
 import com.project.stockmicroservices.entity.StockResponse;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,5 +35,12 @@ public class StockController {
         Optional<Product> products = stockRepository.findById(id);
         return products.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).
                 orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
+    @GetMapping("/get-products")
+    public ResponseEntity<List<Product>> getProductsById(@RequestParam("ids") String ids) {
+        List<Long> idList = Arrays.stream(ids.split(",")).toList()
+            .stream().map(Long::parseLong).toList();
+        return new ResponseEntity<>(stockRepository.findByProductIdIn(idList), HttpStatus.OK);
     }
 }

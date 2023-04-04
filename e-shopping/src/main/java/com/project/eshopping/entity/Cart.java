@@ -1,5 +1,6 @@
 package com.project.eshopping.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,8 +16,9 @@ public class Cart {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  // todo how to specify which cart to add
   private Long userId;
 
   private Long productId;
+
+  private Double count;
 }
