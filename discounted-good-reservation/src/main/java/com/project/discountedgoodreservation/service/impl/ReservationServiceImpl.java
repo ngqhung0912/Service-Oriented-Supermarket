@@ -33,7 +33,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     // publish the information to Kafka
     Product product = new Product();
-    product.setId(1L);
+    product.setProductId(1L);
     String message = null;
     try {
       message = objectMapper.writeValueAsString(product);
