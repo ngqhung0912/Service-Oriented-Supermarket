@@ -1,5 +1,5 @@
 CREATE TABLE customer (
-                         id INT AUTO_INCREMENT NOT NULL PRIMARY KEY ,
+                         id INT AUTO_INCREMENT  PRIMARY KEY ,
                          username VARCHAR(20) UNIQUE ,
                          name VARCHAR(30) NOT NULL,
                          age INT NOT NULL,
