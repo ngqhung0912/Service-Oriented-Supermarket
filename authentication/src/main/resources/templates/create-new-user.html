@@ -8,11 +8,11 @@
 <body>
 <div class="container">
     <img src="Afbeelding1-1.jpg" style="width:100%" />
-    <h2>It seems like you've not registered with us (yet), <span th:text="${CustomerName}"></span>. Let's get you registered!</h2>
+    <h2>It seems like you've not registered with us (yet), <span th:text="${UserData.name}"></span>. Let's get you registered!</h2>
 </div>
 <form action="#" th:action="@{/create-user}" th:object="${UserData}" method="post">
-    <p>Your email address: <input type="text" th:field="*{email}" /></p>
-    <p>Your name: <input type="text" th:field="*{name}" /></p>
+    <p>Your email address: <input type="text" th:field="*{email}" th:value="*{email}" /></p>
+    <p>Your name: <input type="text" th:field="*{name}" th:value="*{name}" /></p>
     <p>Your username: <input type="text" th:field="*{username}" /></p>
     <p>Your address: <input type="text" th:field="*{address}" /></p>
     <p>Your age: <input type="number" th:field="*{age}" /></p>

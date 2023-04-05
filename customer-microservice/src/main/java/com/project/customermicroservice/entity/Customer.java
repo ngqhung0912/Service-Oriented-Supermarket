@@ -1,22 +1,22 @@
 package com.project.customermicroservice.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import org.hibernate.annotations.GenericGenerator;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
+@Getter
+@Setter
 @Entity
-@Table
+@NoArgsConstructor
 public class Customer {
+    @GeneratedValue
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    @Getter
+    private long id;
 
     @Getter
     @Setter
@@ -36,5 +36,12 @@ public class Customer {
     @Getter
     @Setter
     private String address;
+
+    public Customer (String username, String name, String email, String address) {
+        this.username = username;
+        this.address = address;
+        this.email = email;
+        this.name = name;
+    }
 
 }

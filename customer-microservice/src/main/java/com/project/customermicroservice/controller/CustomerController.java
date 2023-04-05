@@ -2,6 +2,7 @@ package com.project.customermicroservice.controller;
 
 import com.project.customermicroservice.entity.Customer;
 import com.project.customermicroservice.entity.CustomerResponse;
+import com.project.customermicroservice.entity.NewCustomerInformation;
 import com.project.customermicroservice.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,9 +35,14 @@ public class CustomerController {
     //  manually assigned before calling save(): com.project.customermicroservice.entity.Customer] with root cause
     //  org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save():
     @PostMapping("/customer/create")
-    public ResponseEntity<String> createNewCustomer(@RequestBody Customer customer) {
-        // TODO If I set the ID manually like this, then it works.
-//        customer.setId(10L);
+    public ResponseEntity<String> createNewCustomer(@RequestBody NewCustomerInformation  newCustomer) {
+        // TODO If I set the ID manually, then it works.
+        Customer customer = new Customer(
+                newCustomer.getUsername(),
+                newCustomer.getName(),
+                newCustomer.getEmail(),
+                newCustomer.getAddress());
+        System.out.println(newCustomer);
         customerRepository.save(customer);
        return new ResponseEntity<>("Customer created", HttpStatus.CREATED);
     }

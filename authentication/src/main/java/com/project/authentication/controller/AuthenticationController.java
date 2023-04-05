@@ -32,7 +32,6 @@ public class AuthenticationController {
         return "WHOOPS";
     }
 
-    // TODO: I want to pass newUserData from the getMapping below to the postMapping. How could I do it?
     @GetMapping("/")
     public String authenticate(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
         Map<String, Object> loginAttributes = oAuth2AuthenticationToken.getPrincipal().getAttributes();
@@ -44,8 +43,10 @@ public class AuthenticationController {
             return "authentication-complete";
         } catch (UserNotFoundException e) {
             NewUserData newUserData = new NewUserData();
+            newUserData.setEmail(email);
+            newUserData.setName(name);
             model.addAttribute("UserData", newUserData);
-            model.addAttribute("CustomerName", name);
+//            model.addAttribute("CustomerName", name);
             return "create-new-user";
         }
     }
