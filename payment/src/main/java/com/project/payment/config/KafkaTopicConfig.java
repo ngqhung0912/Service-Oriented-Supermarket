@@ -1,4 +1,4 @@
-package com.project.discountedgoodreservation.config;
+package com.project.payment.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class KafkaTopicConfig {
   }
 
   @Bean
-  public NewTopic topic1() {
-    return new NewTopic("RESERVE", 1, (short) 1);
+  public NewTopic topic() {
+    return new NewTopic("PAYMENT", 1, (short) 1);
   }
 }
