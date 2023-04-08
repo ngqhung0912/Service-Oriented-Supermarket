@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<body>
+<div class="container">
+  <h2>Cart Information</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Id</td>
+      <td>UserId</td>
+      <td>ProductId</td>
+      <td>Count</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cart: ${carts}">
+      <th th:text="${cart.id}">id</th>
+      <td th:text="${cart.userId}">name</td>
+      <td th:text="${cart.productId}">description</td>
+      <td th:text="${cart.count}">price</td>
+    </tr>
+    </tbody>
+    <form method="POST" th:action="@{http://localhost:8083/pay}">
+      <button type="submit" name="Pay" value="value" class="link-button">Pay</button>
+    </form>
+  </table>
+</div>
+</body>
+</html>

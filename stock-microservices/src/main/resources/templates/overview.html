@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<body>
+<div class="container">
+  <h2>Product Information</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Id</td>
+      <td>Name</td>
+      <td>Description</td>
+      <td>Price</td>
+      <td>Count</td>
+      <td>Reserve</td>
+      <td>Add to Cart</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product: ${products}">
+      <th th:text="${product.productId}">id</th>
+      <td th:text="${product.name}">name</td>
+      <td th:text="${product.description}">description</td>
+      <td th:text="${product.price}">price</td>
+      <td th:text="${product.count}">count</td>
+      <td>
+        <form method="POST" th:action="@{http://localhost:8081/{productId}/reserve(productId=${product.productId})}">
+          <button type="submit" name="Reserve" value="value" class="link-button">Reserve</button>
+        </form>
+      </td>
+      <td>
+        <form method="POST" th:action="@{http://localhost:8082/add/{productId}(productId=${product.productId})}">
+          <button type="submit" name="Add to cart" value="value" class="link-button">Add to Cart</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

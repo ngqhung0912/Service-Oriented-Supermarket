@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,7 +13,7 @@ public class PaymentController {
   private PaymentService paymentService;
 
   @PostMapping("/pay")
-  public ResponseEntity<Boolean> pay(@RequestBody Double amount) {
-    return new ResponseEntity<>(paymentService.pay(amount), HttpStatus.OK);
+  public ResponseEntity<Boolean> pay() {
+    return new ResponseEntity<>(paymentService.pay(), HttpStatus.OK);
   }
 }
