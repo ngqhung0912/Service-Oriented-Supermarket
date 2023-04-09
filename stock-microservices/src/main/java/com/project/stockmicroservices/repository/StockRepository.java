@@ -10,5 +10,6 @@ public interface StockRepository extends CrudRepository<Product,Long> {
 
     Optional<Product> findById(Long product_id);
 
+    Optional<Product> findByName(String name);
     List<Product> findByProductIdIn(List<Long> productIds);
 }

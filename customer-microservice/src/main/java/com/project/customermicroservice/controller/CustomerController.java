@@ -31,12 +31,8 @@ public class CustomerController {
     }
 
 
-    // TODO Request processing failed: org.springframework.orm.jpa.JpaSystemException: ids for this class must be
-    //  manually assigned before calling save(): com.project.customermicroservice.entity.Customer] with root cause
-    //  org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save():
     @PostMapping("/customer/create")
     public ResponseEntity<String> createNewCustomer(@RequestBody NewCustomerInformation  newCustomer) {
-        // TODO If I set the ID manually, then it works.
         Customer customer = new Customer(
                 newCustomer.getUsername(),
                 newCustomer.getName(),

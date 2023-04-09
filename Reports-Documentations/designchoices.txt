@@ -1,0 +1,1 @@
+- Kubernetes namespace: no namespace needed for small applications, see (https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
