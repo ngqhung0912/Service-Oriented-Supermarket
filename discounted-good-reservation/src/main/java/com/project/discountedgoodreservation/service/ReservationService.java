@@ -10,5 +10,5 @@ public interface ReservationService {
    *
    * @param productId productId
    */
-  boolean reserve(Integer productId);
+  boolean reserve(Long productId);
 }

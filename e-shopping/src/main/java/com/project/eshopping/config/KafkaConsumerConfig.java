@@ -1,4 +1,4 @@
-package com.project.discountedgoodreservation.config;
+package com.project.eshopping.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ public class KafkaConsumerConfig {
   public ConsumerFactory<String, String> consumerFactory() {
     Map<String, Object> props = new HashMap<>();
     props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-    props.put(ConsumerConfig.GROUP_ID_CONFIG, "TEST_01");
+    props.put(ConsumerConfig.GROUP_ID_CONFIG, "TEST_03");
     props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer.class);
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer.class);
     props.put(ErrorHandlingDeserializer.KEY_DESERIALIZER_CLASS, StringDeserializer.class);

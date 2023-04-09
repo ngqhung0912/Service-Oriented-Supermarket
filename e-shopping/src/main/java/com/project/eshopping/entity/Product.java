@@ -1,4 +1,4 @@
-package com.project.discountedgoodreservation.entity;
+package com.project.eshopping.entity;
 
 import lombok.Data;
 
