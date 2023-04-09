@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-microservice
+  namespace: supermarket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-microservice
+  template:
+    metadata:
+      labels:
+        app: customer-microservice
+    spec:
+      containers:
+        - name: customer-microservice
+          image: supermarket/customer-microservice
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8098

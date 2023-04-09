@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authentication-microservice
+  namespace: supermarket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authentication-microservice
+  template:
+    metadata:
+      labels:
+        app: authentication-microservice
+    spec:
+      containers:
+        - name: authentication-microservice
+          image: supermarket/authentication-microservice
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8097
