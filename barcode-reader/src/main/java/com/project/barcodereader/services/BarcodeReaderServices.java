@@ -15,12 +15,12 @@ public class BarcodeReaderServices {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String STOCK_SERVICE_ID = "stockMicroservices";
+    private static final String STOCK_SERVICE_ID = "localhost:8091/";
     private static final String STOCK_SERVICE_ENDPOINT = "/stock-microservices/stock?";
 
     public String getProductInformationFromStock(int productId) throws ProductNotFoundException {
         try {
-            ResponseEntity<ProductInformation> productInformationResponseEntity =  restTemplate.exchange("http://"+STOCK_SERVICE_ID+STOCK_SERVICE_ENDPOINT+"id="+productId,
+            ResponseEntity<ProductInformation> productInformationResponseEntity =  restTemplate.exchange("http://"+STOCK_SERVICE_ID+STOCK_SERVICE_ENDPOINT+"productId="+productId,
                 HttpMethod.GET,
                 null,
                 ProductInformation.class);
