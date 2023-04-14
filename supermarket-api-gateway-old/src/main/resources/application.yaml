@@ -5,6 +5,7 @@ spring:
   application.name: supermarket
 
   security:
+    enable-csrf: false
     oauth2:
       client:
         registration:
@@ -28,9 +29,9 @@ spring:
           uri: http://localhost:8099/
           predicates:
             - Path=/barcode-reader/**
-  main:
-    allow-bean-definition-overriding: true
-    web-application-type: reactive
+#  main:
+#    allow-bean-definition-overriding: true
+#    web-application-type: reactive
 
 
 
