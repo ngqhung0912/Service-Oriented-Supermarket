@@ -1,10 +1,10 @@
-package com.project.supermarketservice;
+package com.project.supermarketapigateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SupermarketServiceApplicationTests {
+class SupermarketAPIGatewayApplicationTests {
 
     @Test
     void contextLoads() {

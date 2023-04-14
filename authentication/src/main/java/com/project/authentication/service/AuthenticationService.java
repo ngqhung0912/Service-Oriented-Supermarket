@@ -11,11 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
+
 @Service
 public class AuthenticationService {
     @Autowired
     private RestTemplate restTemplate;
-    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "customer-kubernetes-service.default:98/";
+
+    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "customer-kubernetes-service.supermarket:98/";
     private static final String CONSUL_CUSTOMER_SERVICE_ID = "customerMicroservice";
     private static final String CUSTOMER_INFORMATION_RETRIEVAL_ENDPOINT = "/customer-microservice/customer/email?";
     private static final String CREATE_CUSTOMER_ENDPOINT = "/customer-microservice/customer/create";
@@ -52,4 +56,5 @@ public class AuthenticationService {
             throw new CannotCreateUserException(e.toString());
         }
     }
+
 }
