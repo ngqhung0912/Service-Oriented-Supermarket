@@ -24,18 +24,12 @@ public class AuthenticationController {
     private static final String ERROR_PATH = "/error";
 
     @GetMapping(path = "/")
-    public ResponseEntity<String> test(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
-        Map<String, Object> loginAttributes = oAuth2AuthenticationToken.getPrincipal().getAttributes();
-        String name  = loginAttributes.get("name").toString();
-        return ResponseEntity.ok("Hello!" + name);
+    public ResponseEntity<String> test(@RequestParam("name") String name) {
+//        return ResponseEntity.ok("Hello!" + authenticatedUserDTO.getName());
+        return ResponseEntity.ok("Hello, " + name + "!");
+
     }
 
-    @GetMapping(path = "/test-2")
-    public ResponseEntity<String> test2(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
-        Map<String, Object> loginAttributes = oAuth2AuthenticationToken.getPrincipal().getAttributes();
-        String name  = loginAttributes.get("name").toString();
-        return ResponseEntity.ok("Hello!" + name);
-    }
 
 
 //    @GetMapping("/")
