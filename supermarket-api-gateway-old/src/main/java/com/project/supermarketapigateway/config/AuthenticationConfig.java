@@ -17,10 +17,7 @@ import java.net.URI;
 
 @Configuration
 @EnableWebFluxSecurity
-@ComponentScan(value = "com.project")
 public class AuthenticationConfig {
-    @Autowired
-    CustomerWelcomeService customerWelcomeService;
 
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {

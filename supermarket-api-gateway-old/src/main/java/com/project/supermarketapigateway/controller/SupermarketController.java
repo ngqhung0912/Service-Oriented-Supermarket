@@ -24,6 +24,7 @@ public class SupermarketController {
     @GetMapping("/")
     public String authenticate(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
         Map<String, Object> loginAttributes = oAuth2AuthenticationToken.getPrincipal().getAttributes();
+        System.out.println("haizz " + oAuth2AuthenticationToken.getName());
         String email = loginAttributes.get("email").toString();
         String name  = loginAttributes.get("name").toString();
         try {

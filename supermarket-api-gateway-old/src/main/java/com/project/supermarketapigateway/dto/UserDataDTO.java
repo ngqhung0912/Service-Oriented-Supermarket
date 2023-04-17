@@ -1,8 +1,11 @@
 package com.project.supermarketapigateway.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.node.BigIntegerNode;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.math.BigInteger;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 

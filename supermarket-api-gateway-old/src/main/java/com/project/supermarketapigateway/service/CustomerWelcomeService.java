@@ -57,8 +57,5 @@ public class CustomerWelcomeService {
         }
     }
 
-    public String test(String test) {
-        return test;
-    }
 
 }
