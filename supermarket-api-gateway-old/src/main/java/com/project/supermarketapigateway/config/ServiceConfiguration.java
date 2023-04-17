@@ -1,4 +1,4 @@
-package com.project.authentication.config;
+package com.project.supermarketapigateway.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

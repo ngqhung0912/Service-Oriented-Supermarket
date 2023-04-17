@@ -41,7 +41,7 @@ public class StockController {
         return products.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).
                 orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
-    @GetMapping("/stock")
+    @GetMapping("/stock1")
     public ResponseEntity<Product> getProductByName(@RequestParam("name") String name) {
         // return product info in JSON
         Optional<Product> products = stockRepository.findByName(name);

@@ -5,5 +5,5 @@ discounted-good: 8081
 customer: 8098
 barcode: 8099
 authentication: 8097
-
+api-gateway: 8096
 
