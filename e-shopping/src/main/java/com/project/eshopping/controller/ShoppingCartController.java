@@ -55,4 +55,10 @@ public class ShoppingCartController {
   public ResponseEntity<Double> getBill(@PathVariable Long userId) {
     return new ResponseEntity<>(cartService.getBillByUserId(userId), HttpStatus.OK);
   }
+
+  @PostMapping("/carts/test/{uuid}")
+    public ResponseEntity test(@PathVariable String uuid) {
+      cartService.rollback(uuid);
+      return new ResponseEntity<>(HttpStatus.OK);
+  }
 }

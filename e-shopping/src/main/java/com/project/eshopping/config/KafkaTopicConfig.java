@@ -1,4 +1,4 @@
-package com.project.payment.config;
+package com.project.eshopping.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,11 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaAdmin;
 
-/**
- * Kafka Configuration
- *
- * todo application.yml
- */
 @Configuration
 public class KafkaTopicConfig {
   @Value(value = "${spring.kafka.bootstrap-servers}")
@@ -28,16 +23,6 @@ public class KafkaTopicConfig {
 
   @Bean
   public NewTopic topic() {
-    return new NewTopic("PAYMENT", 1, (short) 1);
-  }
-
-  @Bean
-  public NewTopic topic1() {
-    return new NewTopic("PAYMENT_ROLLBACK1", 1, (short) 1);
-  }
-
-  @Bean
-  public NewTopic topic2() {
-    return new NewTopic("PAYMENT_ROLLBACK2", 1, (short) 1);
+    return new NewTopic("PAYMENT_LOG", 1, (short) 1);
   }
 }
