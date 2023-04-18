@@ -27,6 +27,21 @@ spring:
           uri: http://stock-kubernetes-service.supermarket:91/
           predicates:
             - Path=/stock-microservices/**
+        - id: e-shopping
+          uri: http://e-shopping-kubernetes-service.supermarket:82/
+          predicates:
+            - Path=/**
+        - id: reservation
+          uri: http://reservation-kubernetes-service.supermarket:81/
+          predicates:
+            - Path=/**
+        - id: payment
+          uri: http://payment-kubernetes-service.supermarket:83/
+          predicates:
+            - Path=/**
+
+
+
 
 
 #  main:
