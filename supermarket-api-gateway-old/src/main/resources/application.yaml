@@ -2,10 +2,8 @@ server:
   port: 8096
 ---
 spring:
-  application.name: supermarket
-
+  application.name: supermarket-api-gateway
   security:
-    enable-csrf: false
     oauth2:
       client:
         registration:
@@ -17,18 +15,20 @@ spring:
 #      default-filters:
 #        - name: AuthenticationConfig
       routes:
-#        - id: authentication
-#          uri: http://localhost:8097/
-#          predicates:
-#            - Path=/authentication-microservice/**
         - id: customer-microservice
-          uri: http://localhost:8098/
+          uri: http://customer-kubernetes-service.supermarket:98/
           predicates:
             - Path=/customer-microservice/**
         - id: barcode-reader
-          uri: http://localhost:8099/
+          uri: http://barcode-reader-kubernetes-service.supermarket:99/
           predicates:
             - Path=/barcode-reader/**
+        - id: stock-microservice
+          uri: http://stock-kubernetes-service.supermarket:91/
+          predicates:
+            - Path=/stock-microservices/**
+
+
 #  main:
 #    allow-bean-definition-overriding: true
 #    web-application-type: reactive

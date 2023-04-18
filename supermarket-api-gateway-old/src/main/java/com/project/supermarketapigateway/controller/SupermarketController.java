@@ -18,8 +18,6 @@ import java.util.Map;
 public class SupermarketController {
     @Autowired
     CustomerWelcomeService customerWelcomeService;
-//    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "customer-kubernetes-service.supermarket:98/";
-//    private static final String KUBERNETES_AUTHENTICATION_SERVICE_ID = "authentication-kubernetes-service.supermarket:97/";
 
     @GetMapping("/")
     public String authenticate(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {

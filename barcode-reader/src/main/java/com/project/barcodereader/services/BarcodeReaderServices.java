@@ -16,11 +16,14 @@ public class BarcodeReaderServices {
     private RestTemplate restTemplate;
 
     private static final String STOCK_SERVICE_ID = "localhost:8091/";
+
+    private static final String KUBERNETES_STOCK_SERVICE_ID = "stock-kubernetes-service.supermarket:91/";
+
     private static final String STOCK_SERVICE_ENDPOINT = "/stock-microservices/stock?";
 
     public String getProductInformationFromStock(int productId) throws ProductNotFoundException {
         try {
-            ResponseEntity<ProductInformation> productInformationResponseEntity =  restTemplate.exchange("http://"+STOCK_SERVICE_ID+STOCK_SERVICE_ENDPOINT+"productId="+productId,
+            ResponseEntity<ProductInformation> productInformationResponseEntity =  restTemplate.exchange("http://"+KUBERNETES_STOCK_SERVICE_ID+STOCK_SERVICE_ENDPOINT+"productId="+productId,
                 HttpMethod.GET,
                 null,
                 ProductInformation.class);
