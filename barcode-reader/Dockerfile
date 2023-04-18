@@ -8,7 +8,7 @@ LABEL maintainer="HungNguyen"
 VOLUME /tmp
 
 # Make port 8090 available to the world outside this container
-EXPOSE 8098
+EXPOSE 8099
 
 # The application's jar file
 ARG JAR_FILE=target/barcode-reader-0.0.1-SNAPSHOT.jar
