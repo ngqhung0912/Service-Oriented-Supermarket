@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: supermarket-api-gateway
+  name: stock-microservice
   namespace: supermarket
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: supermarket-api-gateway
+      app: stock-microservice
   template:
     metadata:
       labels:
-        app: supermarket-api-gateway
+        app: stock-microservice
     spec:
       containers:
-        - name: supermarket-api-gateway
-          image: supermarket/supermarket-api-gateway
+        - name: stock-microservice
+          image: supermarket/stock-microservice
           imagePullPolicy: Never
           ports:
-            - containerPort: 8096
+            - containerPort: 8091
