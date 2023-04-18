@@ -45,7 +45,7 @@ public class CartService {
 
   private Logger logger = LoggerFactory.getLogger(CartService.class);
 
-  private static final String STOCK_SERVICE_ID = "localhost:8091";
+  private static final String STOCK_SERVICE_ID = "stock-kubernetes-service.supermarket:91";
   private static final String STOCK_SERVICE_ENDPOINT = "/stock-microservices/get-products?";
 
   private static final String UPDATE_STOCK_SERVICE_ENDPOINT = "/stock-microservices/update-stock";

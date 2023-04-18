@@ -57,7 +57,7 @@ public class ReservationServiceImpl implements ReservationService {
     RestTemplate restTemplate = new RestTemplate();
     try {
       ResponseEntity<String> response =  restTemplate.exchange(
-          "http://localhost:8091/stock-microservices/stock?productId="+productId,
+          "http://stock-kubernetes-service.supermarket:91/stock-microservices/stock?productId="+productId,
           HttpMethod.GET,
           null,
           String.class);
