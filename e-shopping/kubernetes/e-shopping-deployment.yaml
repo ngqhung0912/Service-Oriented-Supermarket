@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: e-shopping
+  namespace: supermarket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: e-shopping
+  template:
+    metadata:
+      labels:
+        app: e-shopping
+    spec:
+      containers:
+        - name: e-shopping
+          image: supermarket/e-shopping
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8082

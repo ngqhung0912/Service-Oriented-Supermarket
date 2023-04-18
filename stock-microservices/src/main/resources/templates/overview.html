@@ -24,12 +24,12 @@
       <td th:text="${product.price}">price</td>
       <td th:text="${product.count}">count</td>
       <td>
-        <form method="POST" th:action="@{http://localhost:8081/{productId}/reserve(productId=${product.productId})}">
+        <form method="POST" th:action="@{http://reservation-kubernetes-service.supermarket:81/{productId}/reserve(productId=${product.productId})}">
           <button type="submit" name="Reserve" value="value" class="link-button">Reserve</button>
         </form>
       </td>
       <td>
-        <form method="POST" th:action="@{http://localhost:8082/add/{productId}(productId=${product.productId})}">
+        <form method="POST" th:action="@{http://e-shopping-kubernetes-service.supermarket:82/add/{productId}(productId=${product.productId})}">
           <button type="submit" name="Add to cart" value="value" class="link-button">Add to Cart</button>
         </form>
       </td>

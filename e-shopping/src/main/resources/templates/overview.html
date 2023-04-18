@@ -21,7 +21,7 @@
       <td th:text="${cart.count}">price</td>
     </tr>
     </tbody>
-    <form method="POST" th:action="@{http://localhost:8083/pay}">
+    <form method="POST" th:action="@{http://payment-kubernetes-service.supermarket:83/pay}">
       <button type="submit" name="Pay" value="value" class="link-button">Pay</button>
     </form>
   </table>

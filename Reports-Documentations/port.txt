@@ -6,4 +6,6 @@ customer: 8098
 barcode: 8099
 authentication: 8097
 api-gateway: 8096
+payment: 8083
+e-shopping: 8082
 

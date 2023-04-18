@@ -45,7 +45,7 @@ public class PaymentService {
     String userId = "1";
     try {
       ResponseEntity<String> response =  restTemplate.exchange(
-          "http://localhost:8082/carts/bill/"+userId,
+          "http://e-shopping-kubernetes-service.supermarket:82/carts/bill/"+userId,
           HttpMethod.GET,
           null,
           String.class);

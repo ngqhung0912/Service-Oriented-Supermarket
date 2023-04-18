@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reservation
+  namespace: supermarket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reservation
+  template:
+    metadata:
+      labels:
+        app: reservation
+    spec:
+      containers:
+        - name: reservation
+          image: supermarket/reservation
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8081
