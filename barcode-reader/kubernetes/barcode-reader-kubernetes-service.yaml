@@ -4,7 +4,7 @@ metadata:
   name: barcode-reader-kubernetes-service
   namespace: supermarket
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 99
       targetPort: 8099

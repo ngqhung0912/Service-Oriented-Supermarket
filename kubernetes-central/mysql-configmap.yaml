@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+  namespace: supermarket
+data:
+  soa_e_shopping.sql: |
+    CREATE DATABASE IF NOT EXISTS soa_e_shopping;
+    USE soa_e_shopping; 
+    create table soa_e_shopping.shopping_cart
+    (
+    id bigint auto_increment
+    primary key,
+    user_id bigint not null,
+    product_id bigint null,
+    count decimal not null
+    )
+  soa_payment.sql: |
+    CREATE DATABASE IF NOT EXISTS soa_payment;
+    USE soa_payment;
+    create table soa_payment.payment_log
+      (
+      id          bigint auto_increment
+      primary key,
+      product_ids varchar(100) null,
+      event_id    int          null,
+      status      varchar(20)  null,
+      uuid        varchar(100) null
+      );
+      create index payment_log_uuid_index
+      on soa_payment.payment_log (uuid);
+

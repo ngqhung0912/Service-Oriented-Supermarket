@@ -30,6 +30,18 @@ public class CustomerController {
         }
     }
 
+    @GetMapping("/customer/Id")
+    public ResponseEntity<Customer> getCustomerById(@RequestParam("Id") String Id) {
+        Customer customer = customerRepository.findCustomerById(Id);
+        if (customer != null) {
+            return new ResponseEntity<>(customer, HttpStatus.OK);
+        } else {
+//            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 
     @PostMapping("/customer/create")
     public ResponseEntity<String> createNewCustomer(@RequestBody NewCustomerInformation  newCustomer) {
