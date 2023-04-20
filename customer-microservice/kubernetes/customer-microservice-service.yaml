@@ -4,7 +4,7 @@ metadata:
   name: customer-kubernetes-service
   namespace: supermarket
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 98
       targetPort: 8098

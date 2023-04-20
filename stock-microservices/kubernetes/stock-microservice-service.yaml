@@ -4,7 +4,7 @@ metadata:
   name: stock-kubernetes-service
   namespace: supermarket
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 91
       targetPort: 8091

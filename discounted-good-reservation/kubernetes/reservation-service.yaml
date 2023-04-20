@@ -4,7 +4,7 @@ metadata:
   name: reservation-kubernetes-service
   namespace: supermarket
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 81
       targetPort: 8081
