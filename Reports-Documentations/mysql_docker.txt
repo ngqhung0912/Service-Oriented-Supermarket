@@ -1,0 +1,32 @@
+docker run --name mysql-docker -e MYSQL_ROOT_PASSWORD=Aa123456 -p 13306:3306 -d mysql:8
+docker exec -i mysql-docker mysql -u root -pAa123456 soa_e_shopping < /Users/yuemingwu/Documents/soa_e_shopping.sql
+docker exec -i mysql-docker mysql -u root -pAa123456 soa_payment < /Users/yuemingwu/Documents/soa_payment.sql
+
+docker exec -i mysql-docker mysql -u root -pAa123456
+CREATE DATABASE soa_e_shopping;
+CREATE DATABASE soa_payment;
+exit
+
+create table soa_e_shopping.shopping_cart
+(
+    id         bigint auto_increment
+        primary key,
+    user_id    bigint  not null,
+    product_id bigint  null,
+    count      decimal not null
+)
+
+
+create table soa_payment.payment_log
+(
+    id          bigint auto_increment
+        primary key,
+    product_ids varchar(100) null,
+    event_id    int          null,
+    status      varchar(20)  null,
+    uuid        varchar(100) null
+);
+
+create index payment_log_uuid_index
+    on soa_payment.payment_log (uuid);
+
