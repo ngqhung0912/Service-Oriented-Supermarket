@@ -47,9 +47,10 @@ metadata:
   name: mysql
   namespace: supermarket
 spec:
-  type: LoadBalancer
+  type: ExternalName
+  externalName: host.docker.internal
   ports:
-    - port: 88
+    - port: 3306
       targetPort: 3306
   selector:
     app: mysql

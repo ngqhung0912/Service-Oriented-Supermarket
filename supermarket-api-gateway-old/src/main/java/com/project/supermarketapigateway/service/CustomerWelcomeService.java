@@ -17,8 +17,8 @@ public class CustomerWelcomeService {
     @Autowired
     private RestTemplate restTemplate;
 
-//    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "customer-kubernetes-service.supermarket:98/";
-    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "localhost:8098/";
+    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "customer-kubernetes-service.supermarket:98/";
+//    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "localhost:8098/";
 
     private static final String CUSTOMER_INFORMATION_RETRIEVAL_ENDPOINT = "/customer-microservice/customer/id?";
     private static final String CREATE_CUSTOMER_ENDPOINT = "/customer-microservice/customer/create";
