@@ -15,6 +15,8 @@ import java.math.BigInteger;
 @Setter
 
 public class UserDataDTO {
+
+    private String id;
     private String email;
     private String name;
 

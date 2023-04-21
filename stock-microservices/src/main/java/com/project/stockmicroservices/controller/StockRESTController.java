@@ -9,8 +9,6 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.project.stockmicroservices.repository.StockRepository;
 
@@ -23,7 +21,7 @@ import java.util.Optional;
  **/
 
 @RestController
-public class StockController {
+public class StockRESTController {
     @Autowired StockRepository stockRepository;
     @Autowired
     StockService stockService;
@@ -41,13 +39,6 @@ public class StockController {
         return products.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).
                 orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
-    @GetMapping("/stock1")
-    public ResponseEntity<Product> getProductByName(@RequestParam("name") String name) {
-        // return product info in JSON
-        Optional<Product> products = stockRepository.findByName(name);
-        return products.map(product -> new ResponseEntity<>(product, HttpStatus.OK)).
-                orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-    }
 
     @GetMapping("/get-products")
     public ResponseEntity<List<Product>> getProductsById(@RequestParam("ids") String ids) {
@@ -60,10 +51,4 @@ public class StockController {
     public ResponseEntity<ProductUpdateResponse> updateProduct(@RequestBody ProductStockUpdate stockUpdate) {
         return new ResponseEntity<>(stockService.updateProductInfo(stockUpdate), HttpStatus.OK);
     }
-
-//    @GetMapping("/overview")
-//    public String stockOverview(Model model) {
-//        model.addAttribute("products", stockRepository.findAll());
-//        return "overview";
-//    }
 }

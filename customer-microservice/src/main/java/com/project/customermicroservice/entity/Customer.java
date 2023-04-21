@@ -13,10 +13,10 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 public class Customer {
-    @GeneratedValue
     @Id
     @Getter
-    private long id;
+    @Setter
+    private String id;
 
     @Getter
     @Setter
