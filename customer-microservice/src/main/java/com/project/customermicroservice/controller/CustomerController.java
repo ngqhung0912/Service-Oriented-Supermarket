@@ -25,13 +25,12 @@ public class CustomerController {
         if (customer != null) {
             return new ResponseEntity<>(customer, HttpStatus.OK);
         } else {
-//            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
             return ResponseEntity.notFound().build();
         }
     }
 
-    @GetMapping("/customer/Id")
-    public ResponseEntity<Customer> getCustomerById(@RequestParam("Id") String Id) {
+    @GetMapping("/customer/id")
+    public ResponseEntity<Customer> getCustomerById(@RequestParam("id") String Id) {
         Customer customer = customerRepository.findCustomerById(Id);
         if (customer != null) {
             return new ResponseEntity<>(customer, HttpStatus.OK);
@@ -45,12 +44,15 @@ public class CustomerController {
 
     @PostMapping("/customer/create")
     public ResponseEntity<String> createNewCustomer(@RequestBody NewCustomerInformation  newCustomer) {
+        String id = newCustomer.getId();
         Customer customer = new Customer(
                 newCustomer.getUsername(),
                 newCustomer.getName(),
                 newCustomer.getEmail(),
                 newCustomer.getAddress());
-        System.out.println(newCustomer);
+
+        customer.setId(id);
+        System.out.println(newCustomer.getId());
         customerRepository.save(customer);
        return new ResponseEntity<>("Customer created", HttpStatus.CREATED);
     }

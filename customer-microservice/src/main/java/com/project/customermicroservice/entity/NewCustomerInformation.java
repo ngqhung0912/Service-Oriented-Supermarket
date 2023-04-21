@@ -4,6 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class NewCustomerInformation {
+
+    @Getter
+    @Setter
+    String id;
     @Getter
     @Setter
     String email;
@@ -26,7 +30,7 @@ public class NewCustomerInformation {
 
     public String toString() {
         String space = " ";
-        return "NewCustomer info: " +this.email + space +
+        return "NewCustomer info: " + this.id + space + this.email + space +
                 this.username + space +
                 this.name + space +
                 this.age + space +

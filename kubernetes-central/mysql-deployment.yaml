@@ -15,7 +15,7 @@ spec:
         app: mysql
     spec:
       containers:
-        - image: mysql:8
+        - image: mysql:oracle
           name: mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
@@ -25,7 +25,6 @@ spec:
                   key: password
           ports:
             - containerPort: 3306
-              name: mysql
           volumeMounts:
             - name: mysql-initdb
               mountPath: /docker-entrypoint-initdb.d
@@ -48,8 +47,9 @@ metadata:
   name: mysql
   namespace: supermarket
 spec:
+  type: LoadBalancer
   ports:
-    - port: 3306
+    - port: 88
       targetPort: 3306
   selector:
     app: mysql

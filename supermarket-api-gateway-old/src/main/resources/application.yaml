@@ -1,6 +1,7 @@
 server:
   port: 8096
 ---
+
 spring:
   application.name: supermarket-api-gateway
   security:
@@ -39,10 +40,6 @@ spring:
           uri: http://payment-kubernetes-service.supermarket:83/
           predicates:
             - Path=/**
-
-
-
-
 
 #  main:
 #    allow-bean-definition-overriding: true

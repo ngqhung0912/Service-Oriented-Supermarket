@@ -116,10 +116,6 @@
             <artifactId>netty-resolver-dns-native-macos</artifactId>
             <version>4.1.91.Final</version>
         </dependency>
-
-
-
-
     </dependencies>
     <dependencyManagement>
         <dependencies>

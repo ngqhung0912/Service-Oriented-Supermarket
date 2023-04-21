@@ -6,6 +6,10 @@ import lombok.Setter;
 
 public class NewUserDataDTO {
 
+    @Setter
+    @Getter
+    String id;
+
     @Getter
     @Setter
     String address;

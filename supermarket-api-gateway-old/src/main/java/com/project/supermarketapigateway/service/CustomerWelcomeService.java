@@ -17,21 +17,15 @@ public class CustomerWelcomeService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "customer-kubernetes-service.supermarket:98/";
-//    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "localhost:8098/";
+//    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "customer-kubernetes-service.supermarket:98/";
+    private static final String KUBERNETES_CUSTOMER_SERVICE_ID = "localhost:8098/";
 
-    private static final String CONSUL_CUSTOMER_SERVICE_ID = "customerMicroservice";
-    private static final String CUSTOMER_INFORMATION_RETRIEVAL_ENDPOINT = "/customer-microservice/customer/email?";
+    private static final String CUSTOMER_INFORMATION_RETRIEVAL_ENDPOINT = "/customer-microservice/customer/id?";
     private static final String CREATE_CUSTOMER_ENDPOINT = "/customer-microservice/customer/create";
 
-    public String getCustomerInformation(String email) throws UserNotFoundException {
+    public String getCustomerInformation(String id) throws UserNotFoundException {
         try {
-// The below commented code is for Consul
-//            ResponseEntity<UserDataDTO> userDataResponseEntity = restTemplate.exchange("http://" + CONSUL_CUSTOMER_SERVICE_ID + CUSTOMER_INFORMATION_RETRIEVAL_ENDPOINT + "email=" + email,
-//                    HttpMethod.GET,
-//                    null,
-//                    UserDataDTO.class);
-            ResponseEntity<UserDataDTO> userDataResponseEntity = restTemplate.exchange("http://" + KUBERNETES_CUSTOMER_SERVICE_ID + CUSTOMER_INFORMATION_RETRIEVAL_ENDPOINT + "email=" + email,
+            ResponseEntity<UserDataDTO> userDataResponseEntity = restTemplate.exchange("http://" + KUBERNETES_CUSTOMER_SERVICE_ID + CUSTOMER_INFORMATION_RETRIEVAL_ENDPOINT + "id=" + id,
                     HttpMethod.GET,
                     null,
                     UserDataDTO.class);
@@ -46,6 +40,8 @@ public class CustomerWelcomeService {
             throw new UserNotFoundException("this account does not exist");
         }
     }
+
+
 
     public void createNewCustomer(NewUserDataDTO newUserData) {
         try {
