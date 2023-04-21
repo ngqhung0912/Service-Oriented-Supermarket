@@ -22,7 +22,7 @@ import java.util.Optional;
  * @author Hung Nguyen
  **/
 
-@Controller
+@RestController
 public class StockController {
     @Autowired StockRepository stockRepository;
     @Autowired
@@ -61,9 +61,9 @@ public class StockController {
         return new ResponseEntity<>(stockService.updateProductInfo(stockUpdate), HttpStatus.OK);
     }
 
-    @GetMapping("/overview")
-    public String stockOverview(Model model) {
-        model.addAttribute("products", stockRepository.findAll());
-        return "overview";
-    }
+//    @GetMapping("/overview")
+//    public String stockOverview(Model model) {
+//        model.addAttribute("products", stockRepository.findAll());
+//        return "overview";
+//    }
 }
