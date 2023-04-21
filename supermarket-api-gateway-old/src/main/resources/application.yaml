@@ -1,0 +1,49 @@
+server:
+  port: 8096
+---
+
+spring:
+  application.name: supermarket-api-gateway
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 586330299500-g48p3cj9bvtjn32f1d3q4797gl4jo0kc.apps.googleusercontent.com
+            client-secret: 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
+  cloud:
+    gateway:
+#      default-filters:
+#        - name: AuthenticationConfig
+      routes:
+        - id: customer-microservice
+          uri: http://customer-kubernetes-service.supermarket:98/
+          predicates:
+            - Path=/customer-microservice/**
+        - id: barcode-reader
+          uri: http://barcode-reader-kubernetes-service.supermarket:99/
+          predicates:
+            - Path=/barcode-reader/**
+        - id: stock-microservice
+          uri: http://stock-kubernetes-service.supermarket:91/
+          predicates:
+            - Path=/stock-microservices/**
+        - id: e-shopping
+          uri: http://e-shopping-kubernetes-service.supermarket:82/
+          predicates:
+            - Path=/**
+        - id: reservation
+          uri: http://reservation-kubernetes-service.supermarket:81/
+          predicates:
+            - Path=/**
+        - id: payment
+          uri: http://payment-kubernetes-service.supermarket:83/
+          predicates:
+            - Path=/**
+
+#  main:
+#    allow-bean-definition-overriding: true
+#    web-application-type: reactive
+
+
+

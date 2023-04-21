@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stock-kubernetes-service
+  namespace: supermarket
+spec:
+  type: ClusterIP
+  ports:
+    - port: 91
+      targetPort: 8091
+  selector:
+    app: stock-microservice

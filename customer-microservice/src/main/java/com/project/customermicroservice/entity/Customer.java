@@ -1,17 +1,22 @@
 package com.project.customermicroservice.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+
+@Getter
+@Setter
 @Entity
-@Table
+@NoArgsConstructor
 public class Customer {
     @Id
     @Getter
-    private Long id;
+    @Setter
+    private String id;
 
     @Getter
     @Setter
@@ -31,5 +36,12 @@ public class Customer {
     @Getter
     @Setter
     private String address;
+
+    public Customer (String username, String name, String email, String address) {
+        this.username = username;
+        this.address = address;
+        this.email = email;
+        this.name = name;
+    }
 
 }

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: barcode-reader
+  namespace: supermarket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: barcode-reader
+  template:
+    metadata:
+      labels:
+        app: barcode-reader
+    spec:
+      containers:
+        - name: barcode-reader
+          image: supermarket/barcode-reader
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8099

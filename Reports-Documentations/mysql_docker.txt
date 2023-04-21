@@ -1,0 +1,26 @@
+
+
+create table soa_e_shopping.shopping_cart
+(
+    id         bigint auto_increment
+        primary key,
+    user_id    bigint  not null,
+    product_id bigint  null,
+    count      decimal not null
+)
+
+
+create table soa_payment.payment_log
+(
+    id          bigint auto_increment
+        primary key,
+    product_ids varchar(100) null,
+    event_id    int          null,
+    status      varchar(20)  null,
+    uuid        varchar(100) null
+);
+
+create index payment_log_uuid_index
+    on soa_payment.payment_log (uuid);
+
+kubectl apply -f 'https://strimzi.io/install/latest?namespace=default' -n default

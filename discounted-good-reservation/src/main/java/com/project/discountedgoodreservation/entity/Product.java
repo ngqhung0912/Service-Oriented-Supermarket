@@ -4,9 +4,8 @@ import lombok.Data;
 
 @Data
 public class Product {
-  private Long id;
 
-  private int productId;
+  private Long productId;
 
   private String name;
 
